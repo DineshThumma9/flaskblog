@@ -12,8 +12,10 @@ login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
 mail = Mail()
 
+
+
 def create_app(config_class=Config):
-    app = Flask(__name__)
+    app = Flask(__name__,instance_relative_config=True)
     app.config.from_object(Config)
 
     db.init_app(app)
